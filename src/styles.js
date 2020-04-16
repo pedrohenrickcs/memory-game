@@ -19,7 +19,6 @@ export const GlobalStyle = createGlobalStyle`
 `
 
 export const Container = styled.div`
-    /* background-color: #232222; */
     display: flex;
     height: 100vh;
     justify-content: center;
