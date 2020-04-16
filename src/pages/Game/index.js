@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Container, List, ItemsList } from '../../styles';
+import { Container, List, ItemsList, Image } from '../../styles';
 
 import Cards from '../../cards';
 
@@ -14,9 +14,9 @@ export default function Game() {
         <Container>
             <List>
                 {Cards.map(card => 
-                    <ItemsList>
-                    <img src={card}/>
-                    </ItemsList>)}
+                <ItemsList> 
+                    <Image src={card} alt=""/>
+                </ItemsList>)}
             </List>
         </Container>
     )
