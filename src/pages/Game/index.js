@@ -6,31 +6,32 @@ import Cards from '../../cards';
 
 export default function Game() {
 
-    const [cards, setCards] = useState({
-        noFlipped: false
+    
+    const [flipCard, setflipCard] = useState({
+        Cards,
+        flip: false
     });
+    
+  const useCard = (observable, initialValue) => {
 
-    useEffect(() => {
-        setCards(Cards);
-    }, [])
+      useEffect(() => {
+          const newCard = flipCard({
+              flip: true
+          })
+          
+          return newCard;
 
-    function handleCard(index) {
-
-        const newCards = Cards.map(c => {
-            return {c, index, noFlipped: true}
-        })
-        
-        setCards(newCards);
-        console.log('newCards', newCards);
-        
-    }
-
+      }, [observable])
+  }
 
     return (
         <Container>
             <List>
                 {Cards.map((card, index) => 
-                    <ItemsList key={index} onClick={handleCard}> 
+                    <ItemsList key={index} onClick={() => {
+                        console.log('setflipCard(Cards)', setflipCard);
+                        setflipCard(useCard);
+                    }}>
                         <Image src={card}/>
                     </ItemsList>)
                 }
